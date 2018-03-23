@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Stranger Things Phonebook</title>
+    <link rel="stylesheet" href="main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h1>Stranger Things Phonebook</h1>
+    <ul id="characters"></ul>
+    <script src="scripts/app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAiG5mvzUtpcNF53vgVyhQaeKqO53hWEdY",
+        authDomain: "apidrill1.firebaseapp.com",
+        databaseURL: "https://apidrill1.firebaseio.com",
+        projectId: "apidrill1",
+        storageBucket: "",
+        messagingSenderId: "351802723800"
+      };
+      firebase.initializeApp(config);
+    </script>
+  </body>
+</html>
