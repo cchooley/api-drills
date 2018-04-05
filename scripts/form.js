@@ -2,10 +2,9 @@ let API_URL = 'https://quiet-bayou-99554.herokuapp.com/api/v1/contacts'
 let transmit = document.querySelector('form')
 let submitted = document.querySelector('p')
 let params = (new URL(document.location)).searchParams
-let name = params.get("character");
-
-hideElement(submitted)
+let name = params.get("character")
 let nameValue = document.querySelector('#character')
+
 nameValue.value = name
 
 transmit.addEventListener('submit', (event) => {
@@ -21,9 +20,11 @@ transmit.addEventListener('submit', (event) => {
         message
       }
     }
+    if (message === '' || character === '') {
+      submitted.innerText = 'Your request wasnt formatted correctly; are you stuck in the upside-down?'
+    }
   postData(sendData)
 })
-
 
 function postData(data) {
   return fetch(API_URL, {
@@ -32,23 +33,9 @@ function postData(data) {
       headers: {
         'content-type': 'application/json'
       }
-  }).then(response => response.json())
+  })
+  .then(response => response.json())
     .then(response => {
-      showResponse(submitted)
+    submitted.innerText = response.data.message
   })
-    .catch(error => {
-      errorResponse(submitted)
-  })
-}
-
-function hideElement(element) {
-  element.style.display = 'none'
-}
-
-function showResponse(element) {
-  element.style.display = ''
-}
-
-function errorResponse(element) {
-  element.style.innerText = 'Your request wasnt formatted correctly; are you stuck in the upside-down?'
 }

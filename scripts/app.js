@@ -1,4 +1,5 @@
 const baseUrl = 'https://quiet-bayou-99554.herokuapp.com/api/v1/contacts'
+console.log(baseUrl);
 const characterList = document.querySelector('#characters')
 
 getCharacters()
