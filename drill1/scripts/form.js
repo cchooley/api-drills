@@ -20,9 +20,11 @@ transmit.addEventListener('submit', (event) => {
         message
       }
     }
-    if (message === '' || character === '') {
-      submitted.innerText = 'Your request wasnt formatted correctly; are you stuck in the upside-down?'
-    }
+
+  if (message === '' || character === '') {
+    submitted.innerText = 'Your request wasnt formatted correctly; are you stuck in the upside-down?'
+  }
+  
   postData(sendData)
 })
 
@@ -35,7 +37,7 @@ function postData(data) {
       }
   })
   .then(response => response.json())
-    .then(response => {
+  .then(response => {
     submitted.innerText = response.data.message
   })
 }
